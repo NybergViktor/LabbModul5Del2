@@ -14,7 +14,10 @@ public class Menu {
 
 
     public Menu() {
+
         addStartBooks();
+
+
         addNewUser();
         mainMenu();
     }
@@ -74,9 +77,9 @@ public class Menu {
                     case 2:
                         System.out.println("librarian menu");
                         while (true) {
-                            System.out.println("[1] see list of lent out books:\n" +
+                            System.out.println("[1] see list of lent out books:\n" +//klar
                                     "[2] add new book\n" +//klar
-                                    "[3] remove a book\n" +
+                                    "[3] remove a book\n" +//klar
                                     "[4] read a list of users\n" +//klar
                                     "[5] return to main menu\n");//klar
 
@@ -84,14 +87,15 @@ public class Menu {
 
                             switch (choice) {
                                 case 1://see list of lent out books
+                                    lib.listOfBorrowedBooks();
 
                                 case 2://add new book
                                     System.out.println("Adding new book");
                                     addNewBook();
                                     break;
                                 case 3://remove book
-                                    //removeBook();
-                                    //System.out.println("book removed");
+                                    removeBook();
+
                                     break;
 
                                 case 4://read a list of users
@@ -142,15 +146,20 @@ public class Menu {
 
         System.out.println("Book: " + title + " has been added.");
     }
-    /*public void removeBook(){
+    public void removeBook(){
         System.out.println("What book do you want to remove? Choose by id");
         lib.allAvailableBooks();
-        //Väljer vilken book (ID) man vill ta bort
         int altId = input.nextInt();
-        System.out.println("scanner id" + altId);
-        lib.removeBook(altId);
-        lib.allAvailableBooks();
-    }*/
+        try {
+            //Väljer vilken book (ID) man vill ta bort
+
+            System.out.println("scanner id" + altId);
+            lib.removeBook(altId);
+            lib.allAvailableBooks();
+        }catch(Exception e){
+            System.out.println("Write numbers, choose by ID");
+        }
+    }
 
     public void addStartBooks() {
         Book bookOne = new Book("Harry P nr: 1 ", "JKRowling", "First book in the series", (newBookId += 1));

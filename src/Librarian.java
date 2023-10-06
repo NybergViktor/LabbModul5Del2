@@ -29,29 +29,29 @@ public class Librarian {
     public void listOfUsers(){
         for (User user : users){
             System.out.println("All User:\n" + user.toString());
-        }
+        }//for each loop, för varje bok i borrowedok printar den ut nästa bok på en ny rad
     }
     public void listOfBorrowedBooks(){
         for (Book book : borrowedBooks){
-            System.out.println("All User:\n" + book.toString());
-        }
+            System.out.println("All borrowed books:\n" + book.toString());
+        }//for each loop, för varje bok i borrowedok printar den ut nästa bok på en ny rad
     }
     public void removeBook(int i){
-        availableBooks.remove(availableBooks.indexOf(i));
+        i = i -= 1;
+        System.out.println("i: " + i);
+        availableBooks.remove(i);
         System.out.println("Book has been removed");
 
     }
     public void allAvailableBooks(){
         for (Book book : availableBooks){
             System.out.println("All books:\n" + book.toString());
-        }
+        }//for each loop, för varje bok i borrowedok printar den ut nästa bok på en ny rad
     }
     public void allBooks(){
         for (Book book : allBooks){
             System.out.println("All books:\n" + book.toString());
-        }
+        }//for each loop, för varje bok i borrowedok printar den ut nästa bok på en ny rad
     }
-    public void username(){
 
-    }
 }

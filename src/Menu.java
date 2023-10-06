@@ -90,8 +90,8 @@ public class Menu {
                                     addNewBook();
                                     break;
                                 case 3://remove book
-                                    removeBook();
-                                    System.out.println("book removed");
+                                    //removeBook();
+                                    //System.out.println("book removed");
                                     break;
 
                                 case 4://read a list of users
@@ -133,9 +133,6 @@ public class Menu {
         String author = input.nextLine();
         System.out.println("Please add book description: ");
         String description = input.nextLine();
-        //System.out.println("Please add book id: (Should be above 10)");
-        //String id = input.nextLine();
-        //plussar 1 så id nr blir en mer för varje ny bok som adderas
         newBookId += 1;
         System.out.println("Book id: " + newBookId);
 
@@ -145,7 +142,7 @@ public class Menu {
 
         System.out.println("Book: " + title + " has been added.");
     }
-    public void removeBook(){
+    /*public void removeBook(){
         System.out.println("What book do you want to remove? Choose by id");
         lib.allAvailableBooks();
         //Väljer vilken book (ID) man vill ta bort
@@ -153,7 +150,7 @@ public class Menu {
         System.out.println("scanner id" + altId);
         lib.removeBook(altId);
         lib.allAvailableBooks();
-    }
+    }*/
 
     public void addStartBooks() {
         Book bookOne = new Book("Harry P nr: 1 ", "JKRowling", "First book in the series", (newBookId += 1));

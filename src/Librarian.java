@@ -1,25 +1,37 @@
-import java.util.Scanner;
+
+
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Librarian {
-    Scanner myScanner = new Scanner(System.in);
-    User user = new User();
-    Books books = new Books();
-    //getBooks
 
-    public void addBook(){
-        System.out.println("Bokens titel");
-        books.setTitle(myScanner.nextLine());
+    private List<Book> allBooks;
+    private List<Book> borrowedBooks;
+    private List<Book> availableBooks;
+    private List<User> users;
 
-        System.out.println(books.booklist);
-        System.out.println("Författare");
-        books.setAuthor(myScanner.nextLine());
-
+    public Librarian(){
+        allBooks = new ArrayList<>();
+        borrowedBooks = new ArrayList<>();
+        availableBooks = new ArrayList<>();
     }
-    public void removeBook(){
-
+    public void addBookToArray(Book book){
+        allBooks.add(book);
+        availableBooks.add(book);
+        System.out.println("Book has been added: " + book.getTitle());
     }
-    public void wantToReadListOfUsers(){
-        System.out.println("User is: " + user.name);
+    public void removeBook(Book book){
+        allBooks.remove(book);
+        availableBooks.remove(book);
+        System.out.println("Book has been removed: " + book.getTitle());
+    }
+    public void allBooks(){
+        for (Book book : availableBooks){
+            System.out.println("All books:\n" + book.toString());
+        }
+    }
+    public void loanBook(){
 
     }
 }

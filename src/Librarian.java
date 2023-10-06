@@ -15,23 +15,43 @@ public class Librarian {
         allBooks = new ArrayList<>();
         borrowedBooks = new ArrayList<>();
         availableBooks = new ArrayList<>();
+        users = new ArrayList<>();
     }
     public void addBookToArray(Book book){
         allBooks.add(book);
         availableBooks.add(book);
         System.out.println("Book has been added: " + book.getTitle());
     }
-    public void removeBook(Book book){
-        allBooks.remove(book);
-        availableBooks.remove(book);
-        System.out.println("Book has been removed: " + book.getTitle());
+    public void addUser(User user){
+        users.add(user);
+        System.out.println("User: " + user + " has been added!");
     }
-    public void allBooks(){
+    public void listOfUsers(){
+        for (User user : users){
+            System.out.println("All User:\n" + user.toString());
+        }
+    }
+    public void listOfBorrowedBooks(){
+        for (Book book : borrowedBooks){
+            System.out.println("All User:\n" + book.toString());
+        }
+    }
+    public void removeBook(int i){
+        availableBooks.remove(availableBooks.indexOf(i));
+        System.out.println("Book has been removed");
+
+    }
+    public void allAvailableBooks(){
         for (Book book : availableBooks){
             System.out.println("All books:\n" + book.toString());
         }
     }
-    public void loanBook(){
+    public void allBooks(){
+        for (Book book : allBooks){
+            System.out.println("All books:\n" + book.toString());
+        }
+    }
+    public void username(){
 
     }
 }

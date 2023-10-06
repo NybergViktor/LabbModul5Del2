@@ -4,7 +4,7 @@ public class Book {
     private String title;
     private String author;
     private String description;
-    private String id;
+    private int id;
     private boolean isAvailable;
 
     public void setAvailable(boolean available) {
@@ -17,7 +17,7 @@ public class Book {
 
     }
 
-    public Book(String title, String author, String description, String id) {
+    public Book(String title, String author, String description, int id) {
         this.title = title;
         this.author = author;
         this.description = description;
@@ -42,7 +42,7 @@ public class Book {
         return description;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 

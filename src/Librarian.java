@@ -22,9 +22,26 @@ public class Librarian {
         availableBooks.add(book);
         System.out.println("Book has been added: " + book.getTitle());
     }
+    public void moveBookToBorrowedArray(int altId){
+
+        borrowedBooks.add(availableBooks.get(altId));
+        System.out.println("Book has been loaned: " + availableBooks.get(altId));
+        availableBooks.remove(altId);
+
+    }
+    public void moveBookToAvailableArray(int altId){
+
+        availableBooks.add(borrowedBooks.get(altId));
+        System.out.println("Book has been returned: " + borrowedBooks.get(altId));
+        borrowedBooks.remove(altId);
+
+    }
     public void addUser(User user){
         users.add(user);
         System.out.println("User: " + user + " has been added!");
+    }
+    public void trueOrFalse(){
+
     }
     public void listOfUsers(){
         for (User user : users){

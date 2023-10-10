@@ -1,7 +1,4 @@
 
-
-
-
 import java.util.Scanner;
 
 public class Menu {
@@ -41,8 +38,8 @@ public class Menu {
                         //addNewUser();
                         while (true) {
                             System.out.println("[1] see list of available books:\n" + //klar
-                                    "[2] loan book\n" +
-                                    "[3] return book\n" +
+                                    "[2] loan book\n" +//kanske klar
+                                    "[3] return book\n" +//kanske klar
                                     "[4] read a list of loaned books\n" +//klar
                                     "[5] return to main menu\n");//klar
                             int choice = input.nextInt();
@@ -55,12 +52,14 @@ public class Menu {
                                     //här ska man också kunna läsa mer om boken
 
                                 case 2://loan book
-                                    System.out.println("What book do you want to loan?");
-                                    int loanThisBook = input.nextInt();
                                     //kalla på metod
+                                    loanBook();
+                                    break;
 
                                 case 3://return book
-                                    System.out.println("What book do you want to return?");
+                                    returnBook();
+                                    break;
+
                                 case 4://read a list of loaned books
                                     System.out.println("Those are the books you have loaned: ");
                                     lib.listOfBorrowedBooks();
@@ -68,7 +67,7 @@ public class Menu {
                                     break;
 
                                 default:
-                                    System.out.println("Default!");
+                                    System.out.println("error!");
 
                             }
 
@@ -160,6 +159,38 @@ public class Menu {
             System.out.println("Write numbers, choose by ID");
         }
     }
+    public void loanBook(){
+        System.out.println("What book do you want to loan? Choose by id");
+        lib.allAvailableBooks();
+        int altId = input.nextInt();
+        altId -= 1;
+        //lib.moveBookToBorrowedArray(altId);
+        //lib.listOfBorrowedBooks();lib.allAvailableBooks(altid);
+        try {
+            //Väljer vilken book man vill låna
+            //System.out.println("scanner id" + altId);
+            lib.moveBookToBorrowedArray(altId);
+
+        }catch(Exception e){
+            System.out.println("Write numbers, choose by ID");
+        }
+    }
+    public void returnBook(){
+        System.out.println("What book do you want to return? Choose by id");
+        lib.listOfBorrowedBooks();
+        int altId = input.nextInt();
+        altId -= 1;
+
+        //lib.listOfBorrowedBooks();lib.allAvailableBooks(altid);
+        try {
+            //Väljer vilken book man vill låna
+            //System.out.println("scanner id" + altId);
+            lib.moveBookToAvailableArray(altId);
+
+        }catch(Exception e){
+            System.out.println("Write numbers, choose by ID");
+        }
+    }
 
     public void addStartBooks() {
         Book bookOne = new Book("Harry P nr: 1 ", "JKRowling", "First book in the series", (newBookId += 1));
@@ -167,12 +198,21 @@ public class Menu {
         Book bookThree = new Book("Harry P nr: 3 ", "JKRowling", "Third book in the series", (newBookId += 1));
         Book bookFour = new Book("Harry P nr: 4 ", "JKRowling", "Four book in the series", (newBookId += 1));
         Book bookFive = new Book("Harry P nr: 5 ", "JKRowling", "Fifth book in the series", (newBookId += 1));
-
+        Book bookSix = new Book("Fast and Furious: 1 ", "Vin Diesel m.m.", "First book in the series", (newBookId += 1));
+        Book bookSeven = new Book("Fast and Furious: 2 ", "Vin Diesel m.m.", "Second book in the series", (newBookId += 1));
+        Book bookEight = new Book("Fast and Furious: 3 ", "Vin Diesel m.m.", "Third book in the series", (newBookId += 1));
+        Book bookNine = new Book("Fast and Furious: 4 ", "Vin Diesel m.m.", "Four book in the series", (newBookId += 1));
+        Book bookTen = new Book("Fast and Furious: 5 ", "Vin Diesel m.m.", "Fifth book in the series", (newBookId += 1));
         lib.addBookToArray(bookOne);
         lib.addBookToArray(bookTwo);
         lib.addBookToArray(bookThree);
         lib.addBookToArray(bookFour);
         lib.addBookToArray(bookFive);
+        lib.addBookToArray(bookSix);
+        lib.addBookToArray(bookSeven);
+        lib.addBookToArray(bookEight);
+        lib.addBookToArray(bookNine);
+        lib.addBookToArray(bookTen);
 
 
     }

@@ -48,6 +48,7 @@ public class Menu {
                                 case 1: //list of available books
                                     System.out.println("List of books: ");
                                     lib.allAvailableBooks();
+                                    break;
 
                                     //här ska man också kunna läsa mer om boken
 
@@ -70,7 +71,7 @@ public class Menu {
                                     System.out.println("error!");
 
                             }
-
+                        break;
 
                         }
                     case 2:
@@ -110,7 +111,7 @@ public class Menu {
                                     break;
                             }
 
-
+                            break;
                         }
                     case 3:
                         isRunning = false;
